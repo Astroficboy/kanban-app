@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+
+{% block content%}
+<br>
+<div class="row">
+    <form method = 'POST'>
+        <h3>
+            <input class="form-control" type="text" id="listName" name="listName" placeholder="List name">
+        </h3>
+        <div>
+            <button type="submit" class="btn btn-primary" name="addList" id="addList">Add List</button>
+        </div>
+    </form>
+</div>
+{%endblock%}

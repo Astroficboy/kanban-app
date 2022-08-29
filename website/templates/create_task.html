@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<br>
+<div>
+    <form method="POST">
+        <h3>
+            <input class="form-control" type="text" id="taskName" name="taskName" placeholder="Create task">
+        </h3>
+        <div>
+            <input class="form-control" type="text" id="description" name="description" placeholder="Description">
+        </div>
+        <div>
+            <p style="padding: 15px 0">
+                <input type="hidden" id="task_list_id" value="{{list_id}}">
+                <select id="status" name="status">
+                    <option value="TODO" selected>To Do</option>
+                    <option value="DOING">In Progress</option>
+                    <option value="DONE">Completed</option>
+                </select>
+            </p>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary" name="addNote" id="addNote">Add Task</button>
+        </div>
+
+    </form>
+</div>
+{% endblock %}
