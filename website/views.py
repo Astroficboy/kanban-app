@@ -69,6 +69,20 @@ def create_task():
         return((redirect(url_for('views.home'))))
 
     return(render_template('create_task.html', user=user, list_id=list_id))
+
+
+@views.route('/delete_list', methods=['POST', 'GET'])
+def delete_list():
+    user = User.query.filter_by(id = current_user.id).first()
+    if request.method == 'POST':
+        return((redirect(url_for('views.home'))))
+    return(render_template('delete_list.html', user=user))
+
     
-    
+@views.route('/delete_task', methods=['POST', 'GET'])
+def delete_task():
+    user = User.query.filter_by(id = current_user.id).first()
+    if request.method == 'POST':
+        return((redirect(url_for('views.home'))))
+    return(render_template('delete_list.html', user=user))
 

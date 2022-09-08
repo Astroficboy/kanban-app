@@ -68,20 +68,28 @@
             <div class="row">
                 {% for list in task_list %}
                 <div class="col-12 col-lg-6 col-xl-3">
-                    {{ list.name }}
-                    <br>
-                    <div>
-                        <ul>
-                            {% for task in tasks_by_lists[list.id] %}
-                            <li>
-                                {{ task.title }}
-                                {{ task.status }}
-                            </li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                    <div class="card-actions float-right">
-                        <a href="create_task?list_id={{list.id}}" ><button>+</button></a>
+                    <div class="card card-border-primary">
+                        <div class="card-header">
+                            {{ list.name }}
+                            <br>
+                            <div>
+                                <ul>
+                                    {% for task in tasks_by_lists[list.id] %}
+                                    <div class="card card-border-primary">
+                                        <li>
+                                            {{ task.title }}
+                                            {{ task.status }}
+                                            <a href="delete_task?task_id={{task.id}}" ><button>Delete</button></a>
+                                        </li>
+                                    </div>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <div class="card-actions float-right">
+                                <a href="create_task?list_id={{list.id}}" ><button>+</button></a>
+                                <a href="delete_list?list_id={{list.id}}" ><button>Delete</button></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 {% endfor %}
