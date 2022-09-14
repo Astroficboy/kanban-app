@@ -20,18 +20,19 @@
                                             <p>Task Status:
                                                 <strong><mark>{{ task.status }}</mark></strong>
                                             </p>
-                                            <p>Description:
+                                            <p>Description: material-symbols-sharp
                                                 {{ task.description }}
                                             </p>
                                         </ol>
-                                        <a href="delete_task?task_id={{task.id}}" ><button type="submit" class="btn btn-primary" style="margin:5px">Delete task</button></a>
+                                        <a href="delete_task?task_id={{task.id}}" ><button type="submit" class="btn btn-primary material-symbols-sharp" style="margin:5px" title="Delete task">Delete</button></a>
+                                        <a href="delete_task?task_id={{task.id}}" ><button type="submit" class="btn btn-primary material-symbols-sharp" style="margin:5px" title="Edit task">Edit</button></a>
                                     </li>
                                 </div>
                                 {% endfor %}
                             </ul>
                         </div>
                         <div class="card-actions float-right">
-                            <a href="create_task?list_id={{list.id}}" ><button type="submit" class="btn btn-primary">Add task</button></a>
+                            <a href="create_task?list_id={{list.id}}" ><button type="submit" class="btn btn-primary material-symbols-sharp" title="Add task">Add_task</button></a>
                             <a href="delete_list?list_id={{list.id}}" ><button type="submit" class="btn btn-primary">Delete list</button></a>
                         </div>
                     </div>
@@ -39,7 +40,7 @@
             </div>
             {% endfor %}
             <div>
-                <a  href="create_list"><button type="submit" class="btn btn-primary" style="margin:15px">Add List</button></a>
+                <a  href="create_list"><button type="submit" class="btn btn-primary material-symbols-sharp" style="margin:15px" title="Add list">format_list_bulleted_add</button></a>
             </div>
         </div>
     </div>
