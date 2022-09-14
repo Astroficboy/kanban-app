@@ -13,21 +13,25 @@
                         <div>
                             <ul>
                                 {% for task in tasks_by_lists[list.id] %}
+                                {% if task.status.name != 'DONE' %}
                                 <div class="card card-border-primary">
                                     <li>
-                                        <strong style="margin:5px">{{ task.title }}</strong>
-                                        <ol>
-                                            <p>Task Status:
-                                                <strong><mark>{{ task.status }}</mark></strong>
-                                            </p>
-                                            <p>Description:
-                                                {{ task.description }}
-                                            </p>
-                                        </ol>
-                                        <a href="delete_task?task_id={{task.id}}" ><button type="submit" class="btn btn-primary material-symbols-sharp" style="margin:5px" title="Delete task">Delete</button></a>
-                                        <a href="delete_task?task_id={{task.id}}" ><button type="submit" class="btn btn-primary material-symbols-sharp" style="margin:5px" title="Edit task">Edit</button></a>
+                                        
+                                            <strong style="margin:5px">{{ task.title }}</strong>
+                                            <ol>
+                                                <p>Task Status:
+                                                    <strong><mark>{{ task.status.name }}</mark></strong>
+                                                </p>
+                                                <p>Description:
+                                                    {{ task.description }}
+                                                </p>
+                                            </ol>
+                                            <a href="delete_task?task_id={{task.id}}" ><button type="submit" class="btn btn-primary material-symbols-sharp" style="margin:5px" title="Delete task">Delete</button></a>
+                                            <a href="edit_status?task_id={{task.id}}" ><button type="submit" class="btn btn-primary material-symbols-sharp" style="margin:5px" title="Edit status">Edit</button></a>
+                                        
                                     </li>
                                 </div>
+                                {% endif %}
                                 {% endfor %}
                             </ul>
                         </div>

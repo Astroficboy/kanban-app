@@ -26,6 +26,7 @@ def home():
         else:
             tasks = tasks_by_lists[l]
         tasks.append(t)
+    
     return(render_template('lists.html', task_list=task_list, user=user, tasks_by_lists=tasks_by_lists))
 
 
@@ -89,3 +90,16 @@ def delete_task():
         flash('Task deleted.', category='success')
         return((redirect(url_for('views.home'))))
     return(render_template('delete_task.html', user=user))
+
+@views.route('/edit_status', methods=['POST', 'GET'])
+def change_status():
+    user = User.query.filter_by(id = current_user.id).first()
+    task_id = request.args.get('task_id')
+    status = request.form.get('status')
+    get_task = Task.query.filter_by(id=task_id)
+    get_task.update(dict(status=status))
+    db.session.commit()
+    if request.method == 'POST':
+        flash('Task status updated.', category='success')
+        return((redirect(url_for('views.home'))))
+    return(render_template('change_status.html', user=user, task_id=task_id))
