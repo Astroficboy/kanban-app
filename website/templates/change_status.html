@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content%}
+
+<div>
+    <form method="POST">
+        <div>
+            <p>
+                <center>
+                    <p><strong>Made some preogress? Make changes to the status here...</strong></p>
+                    <div>
+                        <p style="padding: 15px 0">
+                            <input type="hidden" id="task__id" value="{{task_id}}">
+                            <select id="status" name="status">
+                                <option value="TODO" selected>To Do</option>
+                                <option value="DOING">In Progress</option>
+                                <option value="DONE">Done</option>
+                            </select>
+                        </p>
+                    </div>
+                    <button type="submit" class="btn btn-primary" name="change_status" id="change_status">Change status</button>
+                </center>
+            </p>
+        </div>
+</div>
+
+{% endblock %}
