@@ -3,10 +3,9 @@
 
 <main class="content">
     <div class="container p-0">
-        <h1 class="h3 mb-3">{{user.first_name}}'s board.</h1>
         <div class="row">
             {% for list in task_list %}
-            <div class="col-12 col-lg-7 col-xl-4">
+            <div class="col-12 col-lg-7 col-xl-4" style="margin:15px">
                 <div class="card card-border-primary">
                     <div class="card-header">
                         <h3><ins>{{ list.name }}</ins></h3>
@@ -16,7 +15,7 @@
                                 {% for task in tasks_by_lists[list.id] %}
                                 <div class="card card-border-primary">
                                     <li>
-                                        <strong>{{ task.title }}</strong>
+                                        <strong style="margin:5px">{{ task.title }}</strong>
                                         <ol>
                                             <p>Task Status:
                                                 <strong><mark>{{ task.status }}</mark></strong>
@@ -25,22 +24,22 @@
                                                 {{ task.description }}
                                             </p>
                                         </ol>
-                                        <a href="delete_task?task_id={{task.id}}" ><button type="submit" class="submit">Delete</button></a>
+                                        <a href="delete_task?task_id={{task.id}}" ><button type="submit" class="btn btn-primary" style="margin:5px">Delete task</button></a>
                                     </li>
                                 </div>
                                 {% endfor %}
                             </ul>
                         </div>
                         <div class="card-actions float-right">
-                            <a href="create_task?list_id={{list.id}}" ><button>+</button></a>
-                            <a href="delete_list?list_id={{list.id}}" ><button>Delete</button></a>
+                            <a href="create_task?list_id={{list.id}}" ><button type="submit" class="btn btn-primary">Add task</button></a>
+                            <a href="delete_list?list_id={{list.id}}" ><button type="submit" class="btn btn-primary">Delete list</button></a>
                         </div>
                     </div>
                 </div>
             </div>
             {% endfor %}
             <div>
-                <a  href="create_list"><button>Add List</button></a>
+                <a  href="create_list"><button type="submit" class="btn btn-primary" style="margin:15px">Add List</button></a>
             </div>
         </div>
     </div>

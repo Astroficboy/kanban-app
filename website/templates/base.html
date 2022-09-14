@@ -15,7 +15,7 @@
       crossorigin="anonymous"
     />
     <meta charset="utf-8">
-    <title>My board</title>
+    <title>{{user.first_name}}'s Board</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	  <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <link href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" rel="stylesheet" />
@@ -80,11 +80,6 @@
       src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
       integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
       crossorigin="anonymous"
-    ></script>
-
-    <script
-      type="text/javascript"
-      src="{{ url_for('static', filename='index.js') }}"
     ></script>
   </body>
 </html>

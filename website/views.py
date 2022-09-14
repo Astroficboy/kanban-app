@@ -89,4 +89,3 @@ def delete_task():
         flash('Task deleted.', category='success')
         return((redirect(url_for('views.home'))))
     return(render_template('delete_task.html', user=user))
-
