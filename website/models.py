@@ -31,6 +31,7 @@ class Task(db.Model):
     status = db.Column(db.Enum(Task_status))
     start_date = db.Column(db.DateTime(timezone=True), default=func.now())
     end_date = db.Column(db.DateTime(timezone=True), default=func.now())
+    completed_on_date = db.Column(db.DateTime(timezone=True), default=func.now())
 
 
 

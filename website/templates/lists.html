@@ -5,7 +5,7 @@
     <div class="container p-0">
         <div class="row">
             {% for list in task_list %}
-            <div class="col-12 col-lg-7 col-xl-4" style="margin:15px">
+            <div class="col-12 col-lg-5 col-xl-4" style="margin:15px">
                 <div class="card card-border-primary">
                     <div class="card-header">
                         <h3><ins>{{ list.name }}</ins></h3>
@@ -24,6 +24,9 @@
                                                 </p>
                                                 <p>Description:
                                                     {{ task.description }}
+                                                </p>
+                                                <p>Deadline:
+                                                    {{ task.end_date.strftime('%Y-%m-%d') }}
                                                 </p>
                                             </ol>
                                             <a href="delete_task?task_id={{task.id}}" ><button type="submit" class="btn btn-primary material-symbols-sharp" style="margin:5px" title="Delete task">Delete</button></a>
