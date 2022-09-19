@@ -91,15 +91,22 @@ def delete_task():
         return((redirect(url_for('views.home'))))
     return(render_template('delete_task.html', user=user))
 
-@views.route('/edit_status', methods=['POST', 'GET'])
+@views.route('/edit_task', methods=['POST', 'GET'])
 def change_status():
     user = User.query.filter_by(id = current_user.id).first()
+    lists = Task_list.query.filter_by(user_id = current_user.id)
     task_id = request.args.get('task_id')
-    status = request.form.get('status')
-    get_task = Task.query.filter_by(id=task_id)
-    get_task.update(dict(status=status))
+    changed_status = request.form.get('status')
+    changed_list = request.form.get('changed_list')
+    changed_list_id = 0
+    for list_name in lists:
+        if list_name.name == changed_list:
+            changed_list_id = list_name.id
+    get_task = Task.query.filter_by(id = task_id)
+    get_task.update(dict(status = changed_status, task_list_id = changed_list_id))
+    #get_task.update(dict(task_list_id = task_list_id))
     db.session.commit()
     if request.method == 'POST':
-        flash('Task status updated.', category='success')
+        flash('Task updated.', category='success')
         return((redirect(url_for('views.home'))))
-    return(render_template('change_status.html', user=user, task_id=task_id))
+    return(render_template('edit_task.html', user=user, task_id=task_id, lists=lists))

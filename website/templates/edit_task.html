@@ -18,7 +18,18 @@
                             </select>
                         </p>
                     </div>
-                    <button type="submit" class="btn btn-primary" name="change_status" id="change_status">Change status</button>
+                    <p><strong>Move your task into other list below.</strong></p>
+                    <div>
+                        <p style="padding: 15px 0">
+                            <input type="hidden" id="task__id" value="{{task_id}}">
+                            <select id="changed_list" name="changed_list">
+                                {% for list in lists %}
+                                    <option>{{ list.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </p>
+                    </div>
+                    <button type="submit" class="btn btn-primary" name="change_status" id="change_status">Done</button>
                 </center>
             </p>
         </div>
